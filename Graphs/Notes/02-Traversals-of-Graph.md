@@ -1,6 +1,6 @@
 Certainly! Let's dive into graph traversal using the provided BFS and DFS implementations in C++. We will also include explanations, examples, and complexity analyses.
 
-# Breadth-First Search (BFS)
+# [Breadth-First Search (BFS)](https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/1)
 
 **`Definition:`**
 
@@ -92,7 +92,7 @@ class Solution
 
 - **`Auxiliary Space Complexity:`** O(V) *for the queue.*
 
-# Depth-First Search (DFS)
+# [Depth-First Search (DFS)](https://www.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1)
 
 **`Definition:`**
 
