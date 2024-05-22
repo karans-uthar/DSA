@@ -1,4 +1,4 @@
-# Depth-First Search (DFS) Approach [🔗](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
+# [Depth-First Search (DFS)](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
 
 ### Explanation
 
@@ -45,7 +45,7 @@ bool isCycle(int V, vector<int> adj[]) {
 - **O(V)**: Space for the visited array.
 - **O(V)**: Auxiliary space for the recursion stack in the worst case.
 
-# Breadth-First Search (BFS) Approach [🔗](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
+# [Breadth-First Search (BFS)](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
 
 ### Explanation
 
