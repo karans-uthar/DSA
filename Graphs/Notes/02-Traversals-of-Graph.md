@@ -1,8 +1,8 @@
 Certainly! Let's dive into graph traversal using the provided BFS and DFS implementations in C++. We will also include explanations, examples, and complexity analyses.
 
-### Breadth-First Search (BFS)
+# Breadth-First Search (BFS)
 
-**Definition:**
+**`Definition`:**
 
 BFS is a traversal technique that explores all vertices at the present depth level before moving on to vertices at the next depth level. It uses a queue data structure.
 
@@ -94,7 +94,7 @@ BFS is a traversal technique that explores all vertices at the present depth lev
 - **Space Complexity:** \( O(V) \) for the visited array and \( O(V) \) for the queue.
 - **Auxiliary Space Complexity:** \( O(V) \) for the queue.
 
-### Depth-First Search (DFS)
+# Depth-First Search (DFS)
 
 **Definition:**
 
