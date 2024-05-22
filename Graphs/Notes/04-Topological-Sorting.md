@@ -11,33 +11,51 @@ Topological sorting of a Directed Acyclic Graph (DAG) is a linear ordering of it
 3. **Order**: Pop vertices from the stack to get the topological order.
 
 ### C++ Code
-
 ```cpp
-void topoSortDFS(int node, vector<int> adj[], vector<bool> &visited, stack<int> &st) {
-    visited[node] = true;
-    for (int neighbor : adj[node]) {
-        if (!visited[neighbor]) {
-            topoSortDFS(neighbor, adj, visited, st);
-        }
-    }
-    st.push(node); // Push the current node after visiting its neighbors
-}
+#include <bits/stdc++.h>
+using namespace std;
 
-vector<int> topoSort(int V, vector<int> adj[]) {
-    vector<bool> visited(V, false);
-    stack<int> st;
-    for (int i = 0; i < V; ++i) {
-        if (!visited[i]) {
-            topoSortDFS(i, adj, visited, st);
-        }
-    }
-    vector<int> result;
-    while (!st.empty()) {
-        result.push_back(st.top());
-        st.pop();
-    }
-    return result;
-}
+class Solution
+{
+	public:
+	void topoSortDFS(int temp, vector<int> *adj, vector<bool> &visited, stack<int> &st)
+	{
+	    visited[temp] = 1;
+	    
+	    for (int i = 0; i < adj[temp].size(); i++)
+	    {
+	        if (!visited[adj[temp][i]])
+	            topoSortDFS(adj[temp][i], adj, visited, st);
+	    }
+	            
+	    st.push(temp);
+	}
+	
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    // DFS
+	    vector<bool> visited(V, 0);
+	    vector<int> answer;
+	    stack<int> st;
+	    
+	    // Call the recursive helper function to store Topological Sort starting from all vertices one by one
+	    for (int i = 0; i < V; i++)
+	    {
+	        if (!visited[i])
+	            topoSortDFS(i, adj, visited, st);
+	    }
+	    
+	    // Retrieve the topological order from the stack
+	    while (!st.empty())
+	    {
+	        answer.push_back(st.top());
+	        st.pop();
+	    }
+	    
+	    return answer;
+	}
+};
 ```
 
 ### Time Complexity
@@ -64,38 +82,58 @@ vector<int> topoSort(int V, vector<int> adj[]) {
 ### C++ Code
 
 ```cpp
-vector<int> getIndegreeOfVertices(int V, vector<int> adj[]) {
-    vector<int> indegree(V, 0);
-    for (int i = 0; i < V; ++i) {
-        for (int neighbor : adj[i]) {
-            indegree[neighbor]++;
-        }
-    }
-    return indegree;
-}
+#include <bits/stdc++.h>
+using namespace std;
 
-vector<int> topoSort(int V, vector<int> adj[]) {
-    vector<int> result;
-    vector<int> indegree = getIndegreeOfVertices(V, adj);
-    queue<int> q;
-    for (int i = 0; i < V; ++i) {
-        if (indegree[i] == 0) {
-            q.push(i);
-        }
-    }
-    while (!q.empty()) {
-        int node = q.front();
-        q.pop();
-        result.push_back(node);
-        for (int neighbor : adj[node]) {
-            indegree[neighbor]--;
-            if (indegree[neighbor] == 0) {
-                q.push(neighbor);
-            }
-        }
-    }
-    return result;
-}
+class Solution
+{
+	public:
+	vector<int> getIndegreeOfVertices(int V, vector<int> *adj)
+	{
+	    vector<int> answer(V, 0);
+	    
+	    for (int i = 0; i < V; i++)
+	        for (int j = 0; j < adj[i].size(); j++)
+	            answer[adj[i][j]]++;
+	            
+	    return answer;
+	}
+	
+	// Kahn's Algorithm
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    vector<int> answer;
+	    
+        // Step 1: Calculate indegree of all the vertices in the graph
+	    vector<int> indegree = getIndegreeOfVertices(V, adj);
+	        
+	    // Step 2: Push all nodes in queue whose indegree is zero
+	    queue<int> q;
+	    
+	    for (int i = 0; i < indegree.size(); i++)
+	        if (indegree[i] == 0)
+	            q.push(i);
+	   
+	    // Step 3: Pop nodes from the queue and decrease the indegree of adjacent nodes and if indegree of any of the node becomes zero push it into the queue
+	    while (!q.empty())
+	    {
+	        int temp = q.front();
+	        q.pop();
+	        
+	        answer.push_back(temp);
+	        
+	        for (int i = 0; i < adj[temp].size(); i++)
+	        {
+	            indegree[adj[temp][i]]--;
+	            
+	            if (indegree[adj[temp][i]] == 0)
+	                q.push(adj[temp][i]);
+	        }
+	    }
+	    
+	    return answer;
+	}
+};
 ```
 
 ### Time Complexity

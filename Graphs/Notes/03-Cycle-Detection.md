@@ -11,29 +11,55 @@ The DFS-based approach for cycle detection in an undirected graph involves:
 ### C++ Code
 
 ```cpp
-bool DFS(int node, int parent, vector<int> adj[], vector<bool> &visited) {
-    visited[node] = true;
-    for (int neighbor : adj[node]) {
-        if (!visited[neighbor]) {
-            if (DFS(neighbor, node, adj, visited)) {
-                return true;
-            }
-        } else if (neighbor != parent) {
-            return true;
-        }
-    }
-    return false;
-}
+#include <iostream>
+#include <vector>
+using namespace std;
 
-bool isCycle(int V, vector<int> adj[]) {
-    vector<bool> visited(V, false);
-    for (int i = 0; i < V; ++i) {
-        if (!visited[i] && DFS(i, -1, adj, visited)) {
-            return true;
+class Solution {
+  public:
+    bool DFS(int temp, int tempParent, vector<int> *adj, vector<bool> &visited)
+    {
+        visited[temp] = 1;
+        
+        for (int i = 0; i < adj[temp].size(); i++)
+        {
+            /*
+            *This will give me wrong output*
+
+            if (!visited[adj[temp][i]] and DFS(adj[temp][i], temp, adj, visited) == 1)
+                return 1;
+                    
+            else if (adj[temp][i] != tempParent)
+                return 1;
+            */
+            
+            if (!visited[adj[temp][i]])
+            {
+                if (DFS(adj[temp][i], temp, adj, visited))  // If the adjacent node is not visited, perform DFS on it
+                    return 1; 
+            }
+                
+            else if (adj[temp][i] != tempParent) // If the adjacent node is visited and it is not equal to the tempParent, a cycle is detected
+                    return 1; 
         }
+        
+        return 0;
     }
-    return false;
-}
+  
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+        // DFS Traversal
+        vector<bool> visited(V, 0);
+        
+        for (int i = 0; i < V; i++)
+        {
+            if (!visited[i] and DFS(i, -1, adj, visited))
+                    return true; // If cycle found in any of the component of the graph
+        }
+        
+        return false; // If no cycle found in any component of the graph
+    }
+};
 ```
 
 ### Time Complexity
@@ -57,35 +83,54 @@ The BFS-based approach for cycle detection involves:
 ### C++ Code
 
 ```cpp
-bool BFS(int start, vector<int> adj[], vector<bool> &visited) {
-    queue<pair<int, int>> q;
-    q.push({start, -1});
-    visited[start] = true;
-    while (!q.empty()) {
-        int node = q.front().first;
-        int parent = q.front().second;
-        q.pop();
-        for (int neighbor : adj[node]) {
-            if (!visited[neighbor]) {
-                visited[neighbor] = true;
-                q.push({neighbor, node});
-            } else if (neighbor != parent) {
-                return true;
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  public:
+    bool BFS(vector<int> *adj, vector<bool> &visited, int i)
+    {
+        queue< pair<int, int> > q; // temp, tempParent will be stored in pair
+         
+        q.push(make_pair(i, -1));
+        visited[i] = 1;
+        
+        while (!q.empty())
+        {
+            int temp = q.front().first;
+            int parentTemp = q.front().second;
+            q.pop();
+            
+            for (int i = 0; i < adj[temp].size(); i++)
+            {
+                if (!visited[adj[temp][i]]) // If the adjacent node is not visited
+                {
+                    visited[adj[temp][i]] = 1;
+                    q.push(make_pair(adj[temp][i], temp));
+                }
+                
+                else if (adj[temp][i] != parentTemp) // If the adjacent node is visited and it is not equal to the tempParent, a cycle is detected
+                    return true;
             }
         }
+        
+        return false;
     }
-    return false;
-}
-
-bool isCycle(int V, vector<int> adj[]) {
-    vector<bool> visited(V, false);
-    for (int i = 0; i < V; ++i) {
-        if (!visited[i] && BFS(i, adj, visited)) {
-            return true;
+  
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+        // Code here
+        vector<bool> visited(V, 0);
+        
+        for (int i = 0; i < V; i++)
+        {
+            if (!visited[i] and BFS(adj, visited, i))
+                return 1; // If cycle found in any of the component of the graph
         }
+        
+        return 0; // If no cycle found in any component of the graph
     }
-    return false;
-}
+};
 ```
 
 ### Time Complexity
