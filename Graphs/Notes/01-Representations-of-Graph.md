@@ -15,47 +15,47 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 **Adjacency List representation:**
 
 ``` 
-    0 -> 1, 2
-    1 -> 0, 2
-    2 -> 0, 1, 3
-    3 -> 2
+0 -> 1, 2
+1 -> 0, 2
+2 -> 0, 1, 3
+3 -> 2
 ```
 
 **C++ Code:**
 
 ```cpp
 
-    #include <iostream>
-    #include <vector>
-    using namespace std;
+#include <iostream>
+#include <vector>
+using namespace std;
 
-    void addEdge(vector<int> adj[], int u, int v) {
-        adj[u].push_back(v);
-        adj[v].push_back(u); // For undirected graph
+void addEdge(vector<int> adj[], int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u); // For undirected graph
+}
+
+void printGraph(const vector<int> adj[], int V) {
+    for (int v = 0; v < V; ++v) {
+        cout << "Adjacency list of vertex " << v << ": ";
+        for (int x : adj[v])
+            cout << x << " ";
+        cout << endl;
     }
+}
 
-    void printGraph(const vector<int> adj[], int V) {
-        for (int v = 0; v < V; ++v) {
-            cout << "Adjacency list of vertex " << v << ": ";
-            for (int x : adj[v])
-                cout << x << " ";
-            cout << endl;
-        }
-    }
+int main() {
+    int V = 4;
+    vector<int> adj[V];
+    
+    addEdge(adj, 0, 1);
+    addEdge(adj, 0, 2);
+    addEdge(adj, 1, 2);
+    addEdge(adj, 2, 3);
 
-    int main() {
-        int V = 4;
-        vector<int> adj[V];
+    printGraph(adj, V);
 
-        addEdge(adj, 0, 1);
-        addEdge(adj, 0, 2);
-        addEdge(adj, 1, 2);
-        addEdge(adj, 2, 3);
-
-        printGraph(adj, V);
-
-        return 0;
-    }
+    return 0;
+}
 
 ```
 
@@ -75,50 +75,50 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 **Adjacency Matrix:**
 
-    ```
+```
 
-       0 1 2 3
-    0 [0 1 1 0]
-    1 [1 0 1 0]
-    2 [1 1 0 1]
-    3 [0 0 1 0]
+   0 1 2 3
+0 [0 1 1 0]
+1 [1 0 1 0]
+2 [1 1 0 1]
+3 [0 0 1 0]
 
-    ```
+```
 
 **C++ Code:**
 
 ```cpp
 
-    #include <iostream>
-    using namespace std;
+#include <iostream>
+using namespace std;
 
-    void addEdge(int adjMatrix[][4], int u, int v) {
-        adjMatrix[u][v] = 1;
-        adjMatrix[v][u] = 1; // For undirected graph
-    }
+void addEdge(int adjMatrix[][4], int u, int v) {
+    adjMatrix[u][v] = 1;
+    adjMatrix[v][u] = 1; // For undirected graph
+}
 
-    void printGraph(int adjMatrix[][4], int V) {
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                cout << adjMatrix[i][j] << " ";
-            }
-            cout << endl;
+void printGraph(int adjMatrix[][4], int V) {
+    for (int i = 0; i < V; i++) {
+        for (int j = 0; j < V; j++) {
+            cout << adjMatrix[i][j] << " ";
         }
+        cout << endl;
     }
+}
 
-    int main() {
-        int V = 4;
-        int adjMatrix[4][4] = {0};
+int main() {
+    int V = 4;
+    int adjMatrix[4][4] = {0};
 
-        addEdge(adjMatrix, 0, 1);
-        addEdge(adjMatrix, 0, 2);
-        addEdge(adjMatrix, 1, 2);
-        addEdge(adjMatrix, 2, 3);
+    addEdge(adjMatrix, 0, 1);
+    addEdge(adjMatrix, 0, 2);
+    addEdge(adjMatrix, 1, 2);
+    addEdge(adjMatrix, 2, 3);
 
-        printGraph(adjMatrix, V);
+    printGraph(adjMatrix, V);
 
-        return 0;
-    }
+    return 0;
+}
 
 ```
 
