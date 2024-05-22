@@ -22,7 +22,6 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 ```
 
 **C++ Code:**
-
 ```cpp
 
 #include <iostream> 
