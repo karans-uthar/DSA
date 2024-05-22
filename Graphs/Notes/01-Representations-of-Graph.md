@@ -6,11 +6,11 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 **Example** : Consider a graph with 4 vertices (0, 1, 2, 3) and the edges: 0-1, 0-2, 1-2, 2-3.
 
-  0
- / \
-1---2
-     \
-      3
+      0
+     / \
+    1---2
+         \
+          3
 
 **Adjacency List representation**:
 
@@ -164,6 +164,7 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 - Insertion and Deletion: Inserting or deleting edges is more straightforward in an adjacency matrix with O(1) time, while in an adjacency list, it takes O(1) for insertion but O(V) for deletion in the worst case.
 
+```
     ------------------------------------------------------------
     |      Criteria        | Adjacency List | Adjacency Matrix |
     ------------------------------------------------------------
@@ -173,6 +174,8 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
     | Insertion Time       | O(1)           | O(1)             |
     | Deletion Time        | O(V)           | O(1)             |
     ------------------------------------------------------------
+
+```
 
 # Summary
 
