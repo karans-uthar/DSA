@@ -18,44 +18,44 @@ BFS is a traversal technique that explores all vertices at the present depth lev
 
 ```cpp
 
-    #include <iostream>
-    #include <vector>
-    #include <queue>
-    using namespace std;
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
 
-    class Solution 
+class Solution 
+{
+    public:
+    // Function to return Breadth First Traversal of given graph.
+    vector<int> bfsOfGraph(int V, vector<int> adj[]) 
     {
-        public:
-        // Function to return Breadth First Traversal of given graph.
-        vector<int> bfsOfGraph(int V, vector<int> adj[]) 
+        queue<int> q;
+        vector<bool> visited(V, 0);
+        vector<int> answer;
+            
+        q.push(0);
+        visited[0] = 1;
+            
+        while (!q.empty())
         {
-            queue<int> q;
-            vector<bool> visited(V, 0);
-            vector<int> answer;
+            int temp = q.front();
+            q.pop();
             
-            q.push(0);
-            visited[0] = 1;
+            answer.push_back(temp);
             
-            while (!q.empty())
+            for (int i = 0; i < adj[temp].size(); i++)
             {
-                int temp = q.front();
-                q.pop();
-                
-                answer.push_back(temp);
-                
-                for (int i = 0; i < adj[temp].size(); i++)
+                if (!visited[adj[temp][i]])
                 {
-                    if (!visited[adj[temp][i]])
-                    {
-                        visited[adj[temp][i]] = 1;
-                        q.push(adj[temp][i]);
-                    }
+                    visited[adj[temp][i]] = 1;
+                    q.push(adj[temp][i]);
                 }
             }
-            
-            return answer;
         }
-    };
+            
+        return answer;
+    }
+};
 
 ```
 
@@ -73,9 +73,7 @@ BFS is a traversal technique that explores all vertices at the present depth lev
 **BFS Traversal starting from vertex 0:**
 
 ```
-
     0 1 2 3
-
 ```
 
 **Graph Visualization:**
@@ -90,13 +88,15 @@ BFS is a traversal technique that explores all vertices at the present depth lev
 
 **Complexities:**
 
-- **Time Complexity:** \( O(V + E) \) since each vertex and edge is explored once.
-- **Space Complexity:** \( O(V) \) for the visited array and \( O(V) \) for the queue.
-- **Auxiliary Space Complexity:** \( O(V) \) for the queue.
+- **`Time Complexity:`** O(V + E) *since each vertex and edge is explored once.*
+
+- **`Space Complexity:`** O(V) *for the visited array and* O(V) *for the queue.*
+
+- **`Auxiliary Space Complexity:`** O(V) *for the queue.*
 
 # Depth-First Search (DFS)
 
-**Definition:**
+**`Definition`:**
 
 DFS is a traversal technique that explores as far as possible along each branch before backtracking. It uses a stack data structure, either explicitly or implicitly through recursion.
 
@@ -109,6 +109,7 @@ DFS is a traversal technique that explores as far as possible along each branch 
 **C++ Code:**
 
 ```cpp
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -136,105 +137,52 @@ class Solution {
         return answer;
     }
 };
+
 ```
 
-**Example:**
-Consider the graph:
+**Example:** Consider the graph
+
 ```
-0 -> 1 -> 2
-1 -> 0 -> 2
-2 -> 0 -> 1 -> 3
-3 -> 2
+
+    0 -> 1 -> 2
+    1 -> 0 -> 2
+    2 -> 0 -> 1 -> 3
+    3 -> 2
+
 ```
 
 **DFS Traversal starting from vertex 0:**
+
 ```
 0 1 2 3
 ```
 
 **Graph Visualization:**
+
 ```
-    0
-   / \
-  1---2
-       \
-        3
+      0
+     / \
+    1---2
+         \
+          3
 ```
 
 **Complexities:**
-- **Time Complexity:** \( O(V + E) \) since each vertex and edge is explored once.
-- **Space Complexity:** \( O(V) \) for the visited array.
-- **Auxiliary Space Complexity:** \( O(V) \) due to the recursion stack in the worst case.
+
+- **`Time Complexity:`** O(V + E) since each vertex and edge is explored once.
+
+- **`Space Complexity:`** O(V) for the visited array.
+
+- **`Auxiliary Space Complexity:`** O(V) due to the recursion stack in the worst case.
 
 ### Summary Table
 
-| **Criteria**         | **DFS**                                | **BFS**                                |
-|----------------------|----------------------------------------|----------------------------------------|
-| **Time Complexity**  | \( O(V + E) \)                         | \( O(V + E) \)                         |
-| **Space Complexity** | \( O(V) \) (visited array)             | \( O(V) \) (visited array)             |
-| **Auxiliary Space**  | \( O(V) \) (recursion stack)           | \( O(V) \) (queue)                     |
-
-### Explanation with Examples
-
-#### BFS:
-- **Input Graph:**
-    ```
-    0 -> 1 -> 2
-    1 -> 0 -> 2
-    2 -> 0 -> 1 -> 3
-    3 -> 2
-    ```
-- **Traversal:**
-    ```
-    Start from 0:
-    - Queue: [0]
-    - Visited: [true, false, false, false]
-    
-    Visit 0:
-    - Queue: [1, 2]
-    - Visited: [true, true, true, false]
-    
-    Visit 1:
-    - Queue: [2]
-    - Visited: [true, true, true, false]
-    
-    Visit 2:
-    - Queue: [3]
-    - Visited: [true, true, true, true]
-    
-    Visit 3:
-    - Queue: []
-    - Visited: [true, true, true, true]
-    
-    Result: 0 1 2 3
-    ```
-
-#### DFS:
-- **Input Graph:**
-    ```
-    0 -> 1 -> 2
-    1 -> 0 -> 2
-    2 -> 0 -> 1 -> 3
-    3 -> 2
-    ```
-- **Traversal:**
-    ```
-    Start from 0:
-    - Visited: [true, false, false, false]
-    
-    Visit 0:
-    - Visited: [true, true, false, false]
-    
-    Visit 1:
-    - Visited: [true, true, true, false]
-    
-    Visit 2:
-    - Visited: [true, true, true, true]
-    
-    Visit 3:
-    - Visited: [true, true, true, true]
-    
-    Result: 0 1 2 3
-    ```
+-------------------------------------------------------------------------------
+| **Criteria**         | **DFS**                   | **BFS**                  |
+-------------------------------------------------------------------------------
+| **Time Complexity**  | O(V + E)                  | O(V + E)                 |
+| **Space Complexity** | O(V) (visited array)      | O(V) (visited array)     |
+| **Auxiliary Space**  | O(V) (recursion stack)    | O(V) (queue)             |
+-------------------------------------------------------------------------------
 
 This explanation covers the BFS and DFS algorithms, their implementations in C++, and detailed traversal examples with their complexities. You can use this information to create notes or documentation for your GitHub repository.

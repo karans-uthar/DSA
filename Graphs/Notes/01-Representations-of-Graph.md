@@ -170,9 +170,10 @@ int main()
 
 - `Auxiliary Space Complexity:` Additional space used by the algorithm, excluding input space, is minimal (constant), i.e., O(1).
 
-### Mathematical Proofs and Comparisons
+### Mathematical Proofs and Comparisons:
 
 > Adjacency List:
+
 1. **`Space Proof:`** For an adjacency list 
 
     - Space Complexity = O(V) *for the array of lists* + O(E) *for storing all neighbors* = O(V + E)
@@ -215,7 +216,6 @@ int main()
 
 ```
 
-### Summary
+### Summary:
 
 The choice of graph representation depends on the specific requirements of the application and the properties of the graph (sparse vs dense).
-depends on the specific requirements of the application and the properties of the graph (sparse vs dense).
