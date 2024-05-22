@@ -6,19 +6,21 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 **Example** : Consider a graph with 4 vertices (0, 1, 2, 3) and the edges: 0-1, 0-2, 1-2, 2-3.
 
-      0
-     / \
-    1---2
-         \
-          3
+          0
+         / \
+        1---2
+             \
+              3
 
 **Adjacency List representation**:
 
     ``` 
+
         0 -> 1, 2
         1 -> 0, 2
         2 -> 0, 1, 3
         3 -> 2
+
     ```
 
 **C++ Code:**
@@ -134,35 +136,35 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 > Adjacency List:
 
-- **Space Proof** : For an adjacency list
+- **`Space Proof`** : For an adjacency list
 
     Space Complexity = O(V) **for the array of lists** + O(E) *for storing all neighbors* = O(V + E)
 
-    Space Complexity = O(V) `in best case where E = V in cycle graph`
-    Space Complexity = O(V^2) `in worst case where E = V(V-1)/2 in complete graph`
-    Space Complexity = O(V^2) `in average case`
+    Space Complexity = O(V) *in best case where E = V in cycle graph*
+    Space Complexity = O(V^2) *in worst case where E = V(V-1)/2 in complete graph*
+    Space Complexity = O(V^2) *in average case*
 
-- **Time for Adding Edge Proof** :  Each edge is added to the list of its two endpoints in O(1) time.
+- **`Time for Adding Edge Proof`** :  Each edge is added to the list of its two endpoints in O(1) time.
 
-    Time Complexity= E x O(1) = O(E) `in every case`
+    Time Complexity= E x O(1) = O(E) *in every case*
 
 > Adjacency Matrix:
 
-- **Space Proof** : For an adjacency matrix
+- **`Space Proof`** : For an adjacency matrix
   
-    Space Complexity = O(V^2) `in every case`
+    Space Complexity = O(V^2) *in every case*
 
-- **Time for Adding Edge Proof** : Each edge is added in O(1) time in the matrix.
+- **`Time for Adding Edge Proof`** : Each edge is added in O(1) time in the matrix.
   
-    Time Complexity = E x O(1) = O(E) `in every case`
+    Time Complexity = E x O(1) = O(E) *in every case*
 
 # Comparison:
 
-- Space Efficiency: Adjacency list is more space-efficient, especially for sparse graphs where E is much less than V^2.
+- `Space Efficiency`: Adjacency list is more space-efficient, especially for sparse graphs where E is much less than V^2.
 
-- Access Time: Adjacency matrix allows O(1) time complexity to check if there is an edge between any two vertices, whereas adjacency list requires O(V) in the worst case.
+- `Access Time`: Adjacency matrix allows O(1) time complexity to check if there is an edge between any two vertices, whereas adjacency list requires O(V) in the worst case.
 
-- Insertion and Deletion: Inserting or deleting edges is more straightforward in an adjacency matrix with O(1) time, while in an adjacency list, it takes O(1) for insertion but O(V) for deletion in the worst case.
+- `Insertion and Deletion`: Inserting or deleting edges is more straightforward in an adjacency matrix with O(1) time, while in an adjacency list, it takes O(1) for insertion but O(V) for deletion in the worst case.
 
 ```
     ------------------------------------------------------------
