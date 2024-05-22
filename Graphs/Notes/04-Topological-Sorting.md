@@ -11,6 +11,7 @@ Topological sorting of a Directed Acyclic Graph (DAG) is a linear ordering of it
 3. **Order**: Pop vertices from the stack to get the topological order.
 
 ### C++ Code
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
