@@ -52,9 +52,9 @@ int main() {
 ```
 
 **Complexities:**
-- **Time Complexity:** Adding an edge takes O(1) time. Thus, for E edges, it’s O(E).
-- **Space Complexity:** The total space is O(V + E), where V is the number of vertices and E is the number of edges. Each vertex stores its neighbors, contributing to the space complexity.
-- **Auxiliary Space Complexity:** Additional space used by the algorithm, excluding input space, is minimal (constant), i.e., O(1).
+- **`Time Complexity:`** Adding an edge takes O(1) time. Thus, for E edges, it’s O(E).
+- **`Space Complexity:`** The total space is O(V + E), where V is the number of vertices and E is the number of edges. Each vertex stores its neighbors, contributing to the space complexity.
+- **`Auxiliary Space Complexity:`** Additional space used by the algorithm, excluding input space, is minimal (constant), i.e., O(1).
 
 # 2. Adjacency Matrix
 
@@ -108,52 +108,45 @@ int main() {
 ```
 
 **Complexities:**
-- **Time Complexity:** Adding an edge takes O(1) time. Thus, for E edges, it’s O(E).
-- **Space Complexity:** The total space is O(V^2) because we need to store V * V elements.
-- **Auxiliary Space Complexity:** Additional space used by the algorithm, excluding input space, is minimal (constant), i.e., O(1).
+- **`Time Complexity:`** Adding an edge takes O(1) time. Thus, for E edges, it’s O(E).
+- **`Space Complexity:`** The total space is O(V^2) because we need to store V * V elements.
+- **`Auxiliary Space Complexity:`** Additional space used by the algorithm, excluding input space, is minimal (constant), i.e., O(1).
 
 ### Mathematical Proofs and Comparisons
 
 #### Adjacency List:
-- **Space Proof:**
-  For an adjacency list:
-  \[
-  \text{Space} = O(V) \text{ (for the array of lists)} + O(E) \text{ (for storing all neighbors)} = O(V + E)
-  \]
+**`Space Proof:`** For an adjacency list
 
-- **Time for Adding Edge Proof:**
-  Each edge is added to the list of its two endpoints in O(1) time.
-  \[
-  \text{Total time} = E \times O(1) = O(E)
-  \]
+    Space Complexity = O(V) *for the array of lists* + O(E) *for storing all neighbors* = O(V + E)
+
+**`Time for Adding Edge Proof`:** Each edge is added to the list of its two endpoints in O(1) time
+    
+    Time Complexity = E x O(1) = O(E)
 
 #### Adjacency Matrix:
-- **Space Proof:**
-  For an adjacency matrix:
-  \[
-  \text{Space} = O(V^2)
-  \]
+**`Space Proof`:** For an adjacency matrix
+    
+    Space Complexity = O(V^2)
 
-- **Time for Adding Edge Proof:**
-  Each edge is added in O(1) time in the matrix.
-  \[
-  \text{Total time} = E \times O(1) = O(E)
-  \]
+**`Time for Adding Edge Proof`:** Each edge is added in O(1) time in the matrix
+    
+    Time Complexity = E x O(1) = O(E)
 
 ### Comparison:
 - **Space Efficiency:** Adjacency list is more space-efficient, especially for sparse graphs where E is much less than V^2.
 - **Access Time:** Adjacency matrix allows O(1) time complexity to check if there is an edge between any two vertices, whereas adjacency list requires O(V) in the worst case.
 - **Insertion and Deletion:** Inserting or deleting edges is more straightforward in an adjacency matrix with O(1) time, while in an adjacency list, it takes O(1) for insertion but O(V) for deletion in the worst case.
 
+```
+    ------------------------------------------------------------
+    |      Criteria        | Adjacency List | Adjacency Matrix |
+    ------------------------------------------------------------
+    | Time Complexity      | O(E)           | O(E)             |
+    | Space Complxity      | O(V + E)       | O(V²)            |
+    | Access Time          | O(V)           | O(1)             |
+    | Insertion Time       | O(1)           | O(1)             |
+    | Deletion Time        | O(V)           | O(1)             |
+    ------------------------------------------------------------
+```
+
 In summary, the choice of graph representation depends on the specific requirements of the application and the properties of the graph (sparse vs. dense).
-
-
-------------------------------------------------------------
-|      Criteria        | Adjacency List | Adjacency Matrix |
-------------------------------------------------------------
-| Time Complexity      | O(E)           | O(E)             |
-| Space Complxity      | O(V + E)       | O(V²)            |
-| Access Time          | O(V)           | O(1)             |
-| Insertion Time       | O(1)           | O(1)             |
-| Deletion Time        | O(V)           | O(1)             |
-------------------------------------------------------------
