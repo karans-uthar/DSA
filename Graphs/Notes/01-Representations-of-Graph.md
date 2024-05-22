@@ -6,22 +6,20 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 **Example:** Consider a graph with 4 vertices (0, 1, 2, 3) and the edges: 0-1, 0-2, 1-2, 2-3.
 
-          0
-         / \
-        1---2
-             \
-              3
+      0
+     / \
+    1---2
+         \
+          3
 
 **Adjacency List representation:**
 
-    ``` 
-
-        0 -> 1, 2
-        1 -> 0, 2
-        2 -> 0, 1, 3
-        3 -> 2
-
-    ```
+``` 
+    0 -> 1, 2
+    1 -> 0, 2
+    2 -> 0, 1, 3
+    3 -> 2
+```
 
 **C++ Code:**
 
@@ -135,30 +133,26 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 # Mathematical Proofs and Comparisons
 
 > Adjacency List:
+1. **`Space Proof:`** For an adjacency list 
 
-- **`Space Proof:`** For an adjacency list 
+    - Space Complexity = O(V) *for the array of lists* + O(E) *for storing all neighbors* = O(V + E)
+    - Space Complexity = O(V) *in best case where E = V in cycle graph*
+    - Space Complexity = O(V^2) *in worst case where E = V(V-1)/2 in complete graph*
+    - Space Complexity = O(V^2) *in average case*
 
-    Space Complexity = O(V) **for the array of lists** + O(E) *for storing all neighbors* = O(V + E)
+2. **`Time for Adding Edge Proof:`**  Each edge is added to the list of its two endpoints in O(1) time.
 
-    Space Complexity = O(V) *in best case where E = V in cycle graph*
-
-    Space Complexity = O(V^2) *in worst case where E = V(V-1)/2 in complete graph*
-    
-    Space Complexity = O(V^2) *in average case*
-
-- **`Time for Adding Edge Proof:`**  Each edge is added to the list of its two endpoints in O(1) time.
-
-    Time Complexity= E x O(1) = O(E) *in every case*
+    - Time Complexity= E x O(1) = O(E) *in every case*
 
 > Adjacency Matrix:
 
-- **`Space Proof:`** For an adjacency matrix
+1. **`Space Proof:`** For an adjacency matrix
   
-    Space Complexity = O(V²) *in every case*
+    - Space Complexity = O(V²) *in every case*
 
-- **`Time for Adding Edge Proof:`** Each edge is added in O(1) time in the matrix.
+2. **`Time for Adding Edge Proof:`** Each edge is added in O(1) time in the matrix.
   
-    Time Complexity = E x O(1) = O(E) *in every case*
+    - Time Complexity = E x O(1) = O(E) *in every case*
 
 # Comparison:
 
