@@ -175,11 +175,11 @@ class Solution {
 
 ```
 -------------------------------------------------------------------------------
-| **Criteria**         | **DFS**                   | **BFS**                  |
+| Criteria             | DFS                       | BFS                      |
 -------------------------------------------------------------------------------
-| **Time Complexity**  | O(V + E)                  | O(V + E)                 |
-| **Space Complexity** | O(V) (visited array)      | O(V) (visited array)     |
-| **Auxiliary Space**  | O(V) (recursion stack)    | O(V) (queue)             |
+| Time Complexity      | O(V + E)                  | O(V + E)                 |
+| Space Complexity     | O(V) (visited array)      | O(V) (visited array)     |
+| Auxiliary Space      | O(V) (recursion stack)    | O(V) (queue)             |
 -------------------------------------------------------------------------------
 ```
 
