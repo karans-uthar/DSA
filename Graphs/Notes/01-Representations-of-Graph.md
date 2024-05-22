@@ -25,36 +25,60 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 ```cpp
 
-#include <iostream>
+#include <iostream> 
 #include <vector>
 using namespace std;
 
-void addEdge(vector<int> adj[], int u, int v) {
-    adj[u].push_back(v);
-    adj[v].push_back(u); // For undirected graph
-}
+int main()
+{
+    int vertices, edges, directed;
 
-void printGraph(const vector<int> adj[], int V) {
-    for (int v = 0; v < V; ++v) {
-        cout << "Adjacency list of vertex " << v << ": ";
-        for (int x : adj[v])
-            cout << x << " ";
+    cin >> vertices >> edges >> directed;
+
+    vector < vector<int> > adjList(vertices);
+
+    // Directed Graph
+    if (directed)
+    {
+        for (int i = 0; i < edges; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+
+            adjList[u].push_back(v);
+        }
+    }
+
+    // Undirected Graph
+    else
+    {
+        for (int i = 0; i < edges; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+
+            adjList[u].push_back(v);
+            adjList[v].push_back(u);
+        }
+    }
+
+    cout << endl;
+
+    // Displaying Adjacency List
+    for (int i = 0; i < adjList.size(); i++)
+    {
+        cout << i << " -> ";
+        for (int j = 0; j < adjList[i].size(); j++)
+        {
+            if (j == adjList[i].size() - 1)
+                cout << adjList[i][j];
+
+            else
+                cout << adjList[i][j] << ", ";
+        }
+
         cout << endl;
     }
-}
-
-int main() {
-    int V = 4;
-    vector<int> adj[V];
-    
-    addEdge(adj, 0, 1);
-    addEdge(adj, 0, 2);
-    addEdge(adj, 1, 2);
-    addEdge(adj, 2, 3);
-
-    printGraph(adj, V);
-
-    return 0;
 }
 
 ```
@@ -90,34 +114,50 @@ int main() {
 ```cpp
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
-void addEdge(int adjMatrix[][4], int u, int v) {
-    adjMatrix[u][v] = 1;
-    adjMatrix[v][u] = 1; // For undirected graph
-}
+int main()
+{
+    int vertices, edges;
+    bool directed;
 
-void printGraph(int adjMatrix[][4], int V) {
-    for (int i = 0; i < V; i++) {
-        for (int j = 0; j < V; j++) {
-            cout << adjMatrix[i][j] << " ";
+    cin >> vertices >> edges >> directed;
+
+    vector < vector <bool> > adjMatrix (vertices, vector<bool>(vertices, 0));
+
+    // Graph is directed
+    if (directed) 
+    {
+        for (int i = 0; i < edges; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+
+            adjMatrix[u][v] = 1;
         }
+    }
+ 
+    // Graph is undirected
+    else
+    {
+        for (int i = 0; i < edges; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+
+            adjMatrix[u][v] = adjMatrix[v][u] = 1;
+        }
+    }
+
+    // Printing adjacency matrix
+    for (int i = 0; i < adjMatrix.size(); i++)
+    {
+        for (int j = 0; j < adjMatrix[i].size(); j++)
+            cout << adjMatrix[i][j] << " ";
+
         cout << endl;
     }
-}
-
-int main() {
-    int V = 4;
-    int adjMatrix[4][4] = {0};
-
-    addEdge(adjMatrix, 0, 1);
-    addEdge(adjMatrix, 0, 2);
-    addEdge(adjMatrix, 1, 2);
-    addEdge(adjMatrix, 2, 3);
-
-    printGraph(adjMatrix, V);
-
-    return 0;
 }
 
 ```
@@ -156,7 +196,7 @@ int main() {
 
 # Comparison:
 
-- `Space Efficiency:` Adjacency list is more space-efficient, especially for sparse graphs where E is much less than V^2.
+- `Space Efficiency:` Adjacency list is more space-efficient, especially for sparse graphs where E is much less than V².
 
 - `Access Time:` Adjacency matrix allows O(1) time complexity to check if there is an edge between any two vertices, whereas adjacency list requires O(V) in the worst case.
 
