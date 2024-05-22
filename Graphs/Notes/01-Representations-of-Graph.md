@@ -2,25 +2,23 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 # 1. Adjacency List
 
-**`Defination`** : An adjacency list represents a graph as an array of lists. Each index of the array corresponds to a vertex, and the list at each index contains all vertices adjacent to that vertex.
+**`Defination:`** An adjacency list represents a graph as an array of lists. Each index of the array corresponds to a vertex, and the list at each index contains all vertices adjacent to that vertex.
 
 **Example** : Consider a graph with 4 vertices (0, 1, 2, 3) and the edges: 0-1, 0-2, 1-2, 2-3.
 
-                  0
-                 / \
-                1---2
-                     \
-                      3
+  0
+ / \
+1---2
+     \
+      3
 
 **Adjacency List representation**:
 
     ``` 
-
         0 -> 1, 2
         1 -> 0, 2
         2 -> 0, 1, 3
         3 -> 2
-
     ```
 
 **C++ Code:**
@@ -138,7 +136,7 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
 - **Space Proof** : For an adjacency list
 
-    Space Complexity = O(V) `for the array of lists` + O(E) `for storing all neighbors` = O(V + E)
+    Space Complexity = O(V) **for the array of lists** + O(E) *for storing all neighbors* = O(V + E)
 
     Space Complexity = O(V) `in best case where E = V in cycle graph`
     Space Complexity = O(V^2) `in worst case where E = V(V-1)/2 in complete graph`
