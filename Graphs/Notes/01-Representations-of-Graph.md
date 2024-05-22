@@ -110,7 +110,6 @@ int main()
 **C++ Code:**
 
 ```cpp
-
 #include <iostream>
 #include <vector>
 using namespace std;
