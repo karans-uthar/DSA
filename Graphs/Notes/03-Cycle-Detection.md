@@ -1,6 +1,4 @@
-# Cycle Detection in Undirected Graph Using DFS and BFS [🔗](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
-
-# Depth-First Search (DFS) Approach
+# Depth-First Search (DFS) Approach [🔗](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
 
 ### Explanation
 
@@ -66,7 +64,7 @@ adj = {
 ```
 DFS will detect a cycle in this graph.
 
-# Breadth-First Search (BFS) Approach
+# Breadth-First Search (BFS) Approach [🔗](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
 
 ### Explanation
 
