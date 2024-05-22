@@ -173,6 +173,7 @@ class Solution {
 
 ### Summary Table
 
+```
 -------------------------------------------------------------------------------
 | **Criteria**         | **DFS**                   | **BFS**                  |
 -------------------------------------------------------------------------------
@@ -180,5 +181,6 @@ class Solution {
 | **Space Complexity** | O(V) (visited array)      | O(V) (visited array)     |
 | **Auxiliary Space**  | O(V) (recursion stack)    | O(V) (queue)             |
 -------------------------------------------------------------------------------
+```
 
 This explanation covers the BFS and DFS algorithms, their implementations in C++, and detailed traversal examples with their complexities. You can use this information to create notes or documentation for your GitHub repository.
