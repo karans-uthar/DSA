@@ -4,13 +4,13 @@ Topological sorting of a Directed Acyclic Graph (DAG) is a linear ordering of it
 
 ## DFS-Based Approach
 
-## Explanation
+### Explanation
 
 1. **DFS Traversal**: Perform a DFS traversal starting from each unvisited node.
 2. **Stack**: Use a stack to store the vertices in the order of their completion times.
 3. **Order**: Pop vertices from the stack to get the topological order.
 
-#### C++ Code
+### C++ Code
 
 ```cpp
 void topoSortDFS(int node, vector<int> adj[], vector<bool> &visited, stack<int> &st) {
