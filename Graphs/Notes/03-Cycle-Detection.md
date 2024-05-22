@@ -1,6 +1,4 @@
-# Cycle Detection in Undirected Graph Using DFS and BFS
-
-[See Question](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0){:target="_blank"}
+# Cycle Detection in Undirected Graph Using DFS and BFS [See Question](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
 
 # Depth-First Search (DFS) Approach
 
