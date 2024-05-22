@@ -112,7 +112,8 @@ DFS is a traversal technique that explores as far as possible along each branch 
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution 
+{
   public:
     void DFSGraph(int temp, vector<int> adj[], vector<bool> &visited, vector<int> &answer)
     {
