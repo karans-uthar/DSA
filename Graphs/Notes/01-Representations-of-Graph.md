@@ -79,7 +79,7 @@ Sure, let's easily explain the representation of a graph in C++ using both Adjac
 
     ```
 
-    0 1 2 3
+       0 1 2 3
     0 [0 1 1 0]
     1 [1 0 1 0]
     2 [1 1 0 1]
