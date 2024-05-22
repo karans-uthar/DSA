@@ -45,25 +45,6 @@ bool isCycle(int V, vector<int> adj[]) {
 - **O(V)**: Space for the visited array.
 - **O(V)**: Auxiliary space for the recursion stack in the worst case.
 
-### Example
-
-Consider the graph:
-```
-  0 -- 1
-  |    |
-  2 -- 3
-```
-Adjacency list representation:
-```
-adj = {
-    {1, 2}, // Node 0
-    {0, 3}, // Node 1
-    {0, 3}, // Node 2
-    {1, 2}  // Node 3
-}
-```
-DFS will detect a cycle in this graph.
-
 # Breadth-First Search (BFS) Approach [🔗](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/0)
 
 ### Explanation
@@ -73,7 +54,7 @@ The BFS-based approach for cycle detection involves:
 2. Using a queue to manage the nodes to be visited, along with their parent nodes.
 3. Checking for cycles by ensuring that a node is not revisited through a different path.
 
-### Pseudocode
+### C++ Code
 
 ```cpp
 bool BFS(int start, vector<int> adj[], vector<bool> &visited) {
@@ -116,51 +97,7 @@ bool isCycle(int V, vector<int> adj[]) {
 - **O(V)**: Space for the visited array.
 - **O(V)**: Auxiliary space for the queue in the worst case.
 
-### Example
-
-Consider the same graph:
-```
-  0 -- 1
-  |    |
-  2 -- 3
-```
-Adjacency list representation:
-```
-adj = {
-    {1, 2}, // Node 0
-    {0, 3}, // Node 1
-    {0, 3}, // Node 2
-    {1, 2}  // Node 3
-}
-```
-BFS will also detect a cycle in this graph.
-
-#### Graphical Representation
-
-For the graph:
-```
-  0 -- 1
-  |    |
-  2 -- 3
-```
-
-### DFS Traversal Example:
-- Start at node 0.
-- Visit node 0, mark as visited.
-- Visit node 1, mark as visited, parent 0.
-- Visit node 3, mark as visited, parent 1.
-- Visit node 2, mark as visited, parent 3.
-- Node 2 connects back to node 0 (not parent of 2), cycle detected.
-
-### BFS Traversal Example:
-- Start at node 0.
-- Visit node 0, mark as visited, add {1, 0} and {2, 0} to queue.
-- Visit node 1, mark as visited, add {3, 1} to queue.
-- Visit node 2, mark as visited, add {3, 2} to queue.
-- Visit node 3, mark as visited.
-- Node 3 connects back to node 1 (not parent of 3), cycle detected.
-
-#### Comparison
+### Comparison
 ```
 ---------------------------------------------------------------------------------
 | Aspect                | DFS                       | BFS                       |
