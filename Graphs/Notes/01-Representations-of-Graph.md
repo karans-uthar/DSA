@@ -137,8 +137,8 @@ int main() {
 
     - Space Complexity = O(V) *for the array of lists* + O(E) *for storing all neighbors* = O(V + E)
     - Space Complexity = O(V) *in best case where E = V in cycle graph*
-    - Space Complexity = O(V^2) *in worst case where E = V(V-1)/2 in complete graph*
-    - Space Complexity = O(V^2) *in average case*
+    - Space Complexity = O(V²) *in worst case where E = V(V-1)/2 in complete graph*
+    - Space Complexity = O(V²) *in average case*
 
 2. **`Time for Adding Edge Proof:`**  Each edge is added to the list of its two endpoints in O(1) time.
 
