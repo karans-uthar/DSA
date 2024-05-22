@@ -2,7 +2,7 @@ Certainly! Let's dive into graph traversal using the provided BFS and DFS implem
 
 # Breadth-First Search (BFS)
 
-**`Definition`:**
+**`Definition:`**
 
 BFS is a traversal technique that explores all vertices at the present depth level before moving on to vertices at the next depth level. It uses a queue data structure.
 
@@ -62,28 +62,26 @@ class Solution
 **Example:** Consider the graph
 
 ```
-
-    0 -> 1, 2
-    1 -> 0, 2
-    2 -> 0, 1, 3
-    3 -> 2
-
+0 -> 1, 2
+1 -> 0, 2
+2 -> 0, 1, 3
+3 -> 2
 ```
 
 **BFS Traversal starting from vertex 0:**
 
 ```
-    0 1 2 3
+0 1 2 3
 ```
 
 **Graph Visualization:**
 
 ```
-      0
-     / \
-    1---2
-         \
-          3
+  0
+ / \
+1---2
+     \
+      3
 ```
 
 **Complexities:**
@@ -96,7 +94,7 @@ class Solution
 
 # Depth-First Search (DFS)
 
-**`Definition`:**
+**`Definition:`**
 
 DFS is a traversal technique that explores as far as possible along each branch before backtracking. It uses a stack data structure, either explicitly or implicitly through recursion.
 
@@ -143,12 +141,10 @@ class Solution {
 **Example:** Consider the graph
 
 ```
-
-    0 -> 1 -> 2
-    1 -> 0 -> 2
-    2 -> 0 -> 1 -> 3
-    3 -> 2
-
+0 -> 1 -> 2
+1 -> 0 -> 2
+2 -> 0 -> 1 -> 3
+3 -> 2
 ```
 
 **DFS Traversal starting from vertex 0:**
@@ -160,11 +156,11 @@ class Solution {
 **Graph Visualization:**
 
 ```
-      0
-     / \
-    1---2
-         \
-          3
+  0
+ / \
+1---2
+     \
+      3
 ```
 
 **Complexities:**
