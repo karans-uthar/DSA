@@ -5,7 +5,8 @@ using namespace std;
 
 //* Recursive Version *//
 class Solution {
-  public:
+    public:
+    
     void DFSGraph(int temp, vector<int> adj[], vector<bool> &visited, vector<int> &answer)
     {
         visited[temp] = 1;
@@ -31,7 +32,8 @@ class Solution {
 
 //* Iterative Version *//
 class Solution {
-  public:
+    public:
+
     // Function to return a list containing the DFS traversal of the graph.
     vector<int> dfsOfGraph(int V, vector<int> adj[]) 
     {
