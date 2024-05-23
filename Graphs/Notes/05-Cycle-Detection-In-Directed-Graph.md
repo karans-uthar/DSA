@@ -1,6 +1,6 @@
 Certainly! Let's dive into both the DFS-based and BFS-based cycle detection algorithms for directed graphs, and compare their time complexity, space complexity, and auxiliary space complexity.
 
-### [DFS-Based Cycle Detection]()
+# [DFS-Based Cycle Detection]()
 
 ```cpp
 #include <bits/stdc++.h>
@@ -37,9 +37,10 @@ public:
 };
 ```
 
-**Explanation:**
+### Explanation:
 
 - **DFS Function:** 
+
   - `path[temp] = visited[temp] = true;` marks the current node as being in the current DFS path and visited.
   - The function then iterates through all adjacent vertices of the current node.
   - If an adjacent vertex is already in the current DFS path (`path[adj[temp][i]]`), a cycle is detected.
@@ -47,24 +48,27 @@ public:
   - After exploring all neighbors, `path[temp]` is set to false, indicating that the current node is no longer in the DFS path.
 
 - **isCyclic Function:**
+
   - Initializes two vectors `path` and `visited` to track nodes in the current DFS path and all visited nodes, respectively.
   - Iterates over all vertices to ensure that each connected component is checked.
   - If a cycle is found during the DFS call, it returns true.
 
-**Time Complexity:**
+### Time Complexity:
+
 - The DFS traversal visits each vertex once and explores each edge once.
-- Time complexity is \(O(V + E)\), where \(V\) is the number of vertices and \(E\) is the number of edges.
+- Time complexity is O(V + E), where V is the number of vertices and E is the number of edges.
 
-**Space Complexity:**
-- The `visited` and `path` vectors each use \(O(V)\) space.
-- Stack space for the recursive calls can be up to \(O(V)\) in the worst case.
+### Space Complexity:
 
-**Auxiliary Space Complexity:**
-- Auxiliary space is \(O(V)\) for the recursion stack in the worst case.
+- The `visited` and `path` vectors each use O(V) space.
+- Stack space for the recursive calls can be up to O(V) in the worst case.
+
+### Auxiliary Space Complexity:
+
+- Auxiliary space is O(V) for the recursion stack in the worst case.
 
 # BFS-Based Cycle Detection (Kahn's Algorithm)
 
-**Code Explanation:**
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -109,45 +113,42 @@ public:
 };
 ```
 
-**Explanation:**
+### Explanation:
+
 - **Indegree Calculation:**
+
   - Calculates the indegree of each vertex (the number of incoming edges).
 
 - **Initialization:**
+
   - Adds all vertices with zero indegree to the queue.
 
 - **BFS Traversal:**
+
   - Processes nodes in the queue, reduces the indegree of their neighbors.
   - Adds neighbors to the queue if their indegree becomes zero.
   - Tracks the count of processed nodes.
 
 - **Cycle Detection:**
+
   - If the count of processed nodes does not equal the number of vertices, a cycle exists.
 
-**Time Complexity:**
+### Time Complexity:
+
 - Similar to DFS, each vertex and edge is processed once.
-- Time complexity is \(O(V + E)\).
+- Time complexity is O(V + E).
 
-**Space Complexity:**
-- The `indegree` vector uses \(O(V)\) space.
-- The queue can store up to \(O(V)\) vertices in the worst case.
+### Space Complexity:
 
-**Auxiliary Space Complexity:**
-- BFS uses \(O(V)\) space for the queue in the worst case.
+- The `indegree` vector uses O(V) space.
+- The queue can store up to O(V) vertices in the worst case.
 
-### Comparison
+### Auxiliary Space Complexity:
 
-**Time Complexity:**
-- Both DFS and BFS approaches have the same time complexity of \(O(V + E)\).
+- BFS uses O(V) space for the queue in the worst case.
 
-**Space Complexity:**
-- Both approaches have similar space complexities, \(O(V)\), due to the storage of visited states and the current DFS path or indegree counts.
+# Summary
 
-**Auxiliary Space Complexity:**
-- DFS has an auxiliary space complexity of \(O(V)\) due to the recursion stack.
-- BFS has an auxiliary space complexity of \(O(V)\) due to the queue.
-
-### Summary
 - Both methods efficiently detect cycles in a directed graph.
 - **DFS** is straightforward with recursion but can lead to deeper recursion stacks.
 - **BFS (Kahn's Algorithm)** uses a queue and is iterative, which can be easier to manage in some scenarios without risking stack overflow.
