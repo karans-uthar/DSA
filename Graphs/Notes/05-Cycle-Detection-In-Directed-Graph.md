@@ -1,6 +1,6 @@
 Certainly! Let's dive into both the DFS-based and BFS-based cycle detection algorithms for directed graphs, and compare their time complexity, space complexity, and auxiliary space complexity.
 
-# [DFS-Based Cycle Detection]()
+# [DFS-Based Cycle Detection](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
 
 ```cpp
 #include <bits/stdc++.h>
@@ -67,7 +67,7 @@ public:
 
 - Auxiliary space is O(V) for the recursion stack in the worst case.
 
-# BFS-Based Cycle Detection (Kahn's Algorithm)
+# [BFS-Based Cycle Detection (Kahn's Algorithm)](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
 
 ```cpp
 #include <bits/stdc++.h>
