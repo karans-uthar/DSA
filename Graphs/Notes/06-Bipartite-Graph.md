@@ -173,6 +173,7 @@ This graph is bipartite because we can color it as follows:
 - Vertex 1: Blue
 - Vertex 2: Red
 - Vertex 3: Blue
+- Vertex 4: Red or Blue ?
 
 This forms two sets {0, 2} and {1, 3}, with no edges within each set.
 
