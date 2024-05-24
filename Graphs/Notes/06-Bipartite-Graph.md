@@ -1,6 +1,6 @@
 Sure, let's dive deeper into the concept of bipartite graphs, their properties, how to determine if a graph is bipartite using BFS and DFS, and how this relates to recommendation systems and the stable marriage problem.
 
-# Bipartite Graphs
+# [Bipartite Graphs](https://www.geeksforgeeks.org/problems/bipartite-graph/1)
 
 A **bipartite graph** is a graph whose vertices can be divided into two disjoint sets U and V such that no edge connects vertices within the same set. Formally, a graph G = (V, E) is bipartite if V can be partitioned into two sets U and V such that every edge e in E has one endpoint in U and the other endpoint in V.
 
