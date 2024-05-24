@@ -14,7 +14,7 @@ A **bipartite graph** is a graph whose vertices can be divided into two disjoint
 
 We can check if a graph is bipartite using two graph traversal techniques: Breadth-First Search (BFS) and Depth-First Search (DFS).
 
-#### BFS Approach
+#### `BFS Approach`
 
 In the BFS approach, we attempt to color the graph using two colors while traversing it level by level. If we find a vertex that needs to be the same color as an adjacent vertex, the graph is not bipartite.
 
@@ -79,7 +79,7 @@ public:
 };
 ```
 
-#### DFS Approach
+#### `DFS Approach`
 
 In the DFS approach, we use a recursive function to attempt to color the graph. The same conflict check is performed: if an adjacent vertex needs to be the same color as the current vertex, the graph is not bipartite.
 
