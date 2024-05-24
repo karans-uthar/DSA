@@ -14,7 +14,7 @@ A **bipartite graph** is a graph whose vertices can be divided into two disjoint
 
 We can check if a graph is bipartite using two graph traversal techniques: Breadth-First Search (BFS) and Depth-First Search (DFS).
 
-#### `BFS Approach`
+## `BFS Approach`
 
 In the BFS approach, we attempt to color the graph using two colors while traversing it level by level. If we find a vertex that needs to be the same color as an adjacent vertex, the graph is not bipartite.
 
@@ -79,7 +79,7 @@ public:
 };
 ```
 
-#### `DFS Approach`
+## `DFS Approach`
 
 In the DFS approach, we use a recursive function to attempt to color the graph. The same conflict check is performed: if an adjacent vertex needs to be the same color as the current vertex, the graph is not bipartite.
 
@@ -147,8 +147,6 @@ public:
 
 ### Complexity Analysis
 
-#### BFS and DFS Approaches
-
 - **Time Complexity**: 
   - Both algorithms visit each vertex once and check each edge once.
   - Thus, the time complexity for both BFS and DFS approaches is O(V + E).
@@ -190,9 +188,9 @@ However, consider this graph:
 
 This graph is not bipartite because it contains an odd-length cycle (0-1-2-4-3-0), which cannot be 2-colored without conflicts.
 
-### Relationship to Recommendation Systems and Stable Marriage Problem
+## Relationship to Recommendation Systems and Stable Marriage Problem
 
-#### Recommendation Systems
+### Recommendation Systems
 
 In recommendation systems, bipartite graphs model relationships between two types of entities, such as users and items (movies, products). Each user is connected to items they have interacted with (e.g., rated). This model helps in collaborative filtering, where recommendations for a user are made based on the preferences of similar users.
 
@@ -212,7 +210,7 @@ C -- Z
 
 This bipartite graph helps identify which items might interest users based on their connections and the connections of similar users.
 
-#### Stable Marriage Problem
+### Stable Marriage Problem
 
 The stable marriage problem can be represented using a bipartite graph where one set represents one group (e.g., men) and the other set represents another group (e.g., women). Each edge represents a possible match. The goal is to find a matching such that no two pairs would prefer each other over their current matches. The Gale-Shapley algorithm, used to solve this problem, can be visualized as iteratively improving matchings on a bipartite graph.
 
@@ -237,6 +235,6 @@ M2 -- W2
 
 The goal is to find a stable matching where no man and woman pair prefer each other over their current partners.
 
-### Conclusion
+## Conclusion
 
 Bipartite graphs are fundamental in many areas of computer science and applied mathematics. Understanding their properties and how to determine bipartiteness is crucial for solving problems like recommendation systems and the stable marriage problem. The BFS and DFS approaches provide efficient ways to check for bipartiteness, with both having a time complexity of O(V + E) and space complexity of O(V).
