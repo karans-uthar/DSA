@@ -30,23 +30,23 @@ The algorithm uses Breadth-First Search (BFS) to simulate the spread of the infe
 ### Complexity Analysis
 
 #### `Time Complexity`
-- **Initialization**: \(O(r \times c)\), where \(r\) is the number of rows and \(c\) is the number of columns, for scanning the grid to find initially infected patients.
-- **BFS Traversal**: Each cell is processed at most once, leading to \(O(r \times c)\) complexity for the BFS traversal.
+- **Initialization**: O(r x c), where r is the number of rows and c is the number of columns, for scanning the grid to find initially infected patients.
+- **BFS Traversal**: Each cell is processed at most once, leading to O(r x c) complexity for the BFS traversal.
 
-Overall, the time complexity is \(O(r \times c)\).
+Overall, the time complexity is O(r x c).
 
 #### `Space Complexity`
-- **Queue**: At most \(O(r \times c)\) elements (worst case if all cells are infected or become infected).
-- **Grid Storage**: The grid itself occupies \(O(r \times c)\) space.
+- **Queue**: At most O(r x c) elements (worst case if all cells are infected or become infected).
+- **Grid Storage**: The grid itself occupies O(r x c) space.
 
-Overall, the space complexity is \(O(r \times c)\).
+Overall, the space complexity is O(r x c).
 
 #### `Auxiliary Space Complexity`
 Auxiliary space refers to the extra space used by the algorithm excluding the input:
-- The queue, used for BFS traversal, can hold up to \(r \times c\) elements.
+- The queue, used for BFS traversal, can hold up to r x c elements.
 - Additional space for the direction arrays and possibly recursion stack (if a recursive version were used).
 
-Overall, the auxiliary space complexity is \(O(r \times c)\).
+Overall, the auxiliary space complexity is O(r x c).
 
 ### C++ Code
 
