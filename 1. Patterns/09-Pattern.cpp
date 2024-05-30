@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    int r, c;
+    int r, c, count = 0;
 
     cout << "Enter rows and columns: ";
     cin >> r >> c;
@@ -14,7 +14,10 @@ int main()
     for (int i = 1; i <= r; i++)
     {
         for (int j = 1; j <= c; j++)
-            cout << i << " ";
+        {
+            count++;
+            cout << count << " ";
+        }
         
         cout << endl;
     }

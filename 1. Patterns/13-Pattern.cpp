@@ -3,18 +3,18 @@ using namespace std;
 
 int main()
 {
-    int r, c;
+    int n;
 
-    cout << "Enter rows and columns: ";
-    cin >> r >> c;
+    cout << "Enter n: ";
+    cin >> n;
 
     cout << "\nPrinting Pattern" << endl;
     cout << "----------------" << endl;
 
-    for (int i = 1; i <= r; i++)
+    for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= c; j++)
-            cout << i << " ";
+        for (int j = i; j >= 1; j--)
+        cout << j << " ";
         
         cout << endl;
     }
