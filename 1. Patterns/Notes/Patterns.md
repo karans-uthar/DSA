@@ -1,4 +1,4 @@
-### [01-Pattern](".\1. Patterns\01-Pattern.cpp")
+### [01-Pattern](https://www.google.com)
 
 ```
 * * * * *
