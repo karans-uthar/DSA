@@ -22,8 +22,10 @@ int main()
 
     // Method 2: Ternary or Conditional Operator
     printf("Greatest number is: ");
-    a>b ? a>c ? printf("%d", a) : printf("%d", c) : b>c ? printf("%d", b) : printf("%d", c);
+    int temp = a>b ? a>c ? printf("%d", a) : printf("%d", c) : b>c ? printf("%d", b) : printf("%d", c);
     printf(" // Method 2\n");
+
+    // printf("%d\n", temp);
 }
 
 /*
